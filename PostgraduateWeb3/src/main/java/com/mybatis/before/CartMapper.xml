@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 相当于Dao包的一个类 -->
+<mapper namespace="com.dao.CartDao">
+	<insert id="focus"  parameterType="map" >
+		insert into focustable(id,coursestable_id,busertable_id,focustime)
+		values(null,#{cid},#{uid},now())
+	</insert>	
+	<!-- 是否已关注 -->
+	<select id="isFocus" parameterType="map" resultType="map">
+		select *from focustable where coursestable_id=#{cid} and busertable_id=#{uid}
+	</select>
+	<!-- =============================================================== -->
+<!-- 是否添加购物车 -->
+	<select id="isPutCart"  resultType="map" parameterType="map">
+		select *from carttable where gcoursestable_id=#{cid} and busertable_id=#{uid}
+	</select>
+<!-- 添加购物车 -->
+	<insert id="putCart" parameterType="map">
+	   insert into carttable (id,busertable_id,coursestable_id,shoppingnum) 
+	   values (null,#{uid},#{cid},#{shoppingnum})
+	</insert>
+<!-- 更新购物车 -->
+	<update id="updateCart" parameterType="map">
+ 		update carttable set shoppingnum=shoppingnum+#{shoppingnum} 
+ 		where busertable_id=#{uid} and coursestable_id=#{cid}
+	</update>
+<!-- 查询购物车 -->
+	<select id="selectCart" parameterType="Integer" resultType="map" >
+		select ct.id,ct.cname,ct.cpicture,ct.crprice,cat.shoppingnum,
+		cat.shoppingnum*ct.crprice smallsum
+		from coursestable ct,carttable cat where ct.id=cat.goodstable_id and cat.busertable_id=#{id}
+	</select>
+<!-- 删除购物车中的订单 -->
+	<delete id="deleteAgoods" parameterType="map">
+		delete from carttable where busertable_id=#{uid} and goodstable_id=#{gid}
+	</delete>
+<!-- 清空购物车 -->
+	<delete id="clear" parameterType="Integer">
+		delete from carttable where busertable_id=#{uid}
+	</delete>
+
+</mapper>	

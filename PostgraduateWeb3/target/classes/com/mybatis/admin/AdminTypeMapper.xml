@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 相当于Dao包的一个类 -->
+<mapper namespace="com.dao.AdminTypeDao">
+<!-- 添加类型,将type中的参数显示在页面上 -->
+	<select id="selectCoursesType" resultType="CoursesType">
+		select * from coursestypetable
+	</select>
+	<!-- 添加类型 -->
+	<insert id="addType" parameterType="String">
+	   insert into coursestypetable (id,typename) values (null,#{typename})
+	</insert>
+	<!-- 删除类型 -->
+ 	<delete id="deleteType" parameterType="Integer">
+	   delete from coursestypetable where id=#{id}
+	</delete>
+	<select id="selectCoursesByType" resultType="courses" parameterType="Integer">
+		select *from coursestable where coursestype_id=#{id}
+	</select>
+</mapper>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!--设置日志使用log4f 防止加了spring-context 后不起作用-->
+ 	<settings>
+		<setting name="logImpl" value="log4j" />
+	</settings> 
+	
+	<!-- 类型别名设置 -->
+ 	<typeAliases>
+		<package name="com.pojo"/>
+	</typeAliases> 
+	<!-- 原来类名的小写 -->
+	<!--映射文件的设置  -->
+	<mappers>	
+	<mapper resource="com/mybatis/admin/AdminMapper.xml"/>
+    <mapper resource="com/mybatis/admin/AdminTypeMapper.xml"/>
+    <mapper resource="com/mybatis/admin/AdminCoursesMapper.xml"/>
+    <mapper resource="com/mybatis/admin/AdminOrderMapper.xml"/>
+    <mapper resource="com/mybatis/admin/AdminUserMapper.xml"/>
+    <mapper resource="com/mybatis/admin/AdminNoticeMapper.xml"/>
+	<mapper resource="com/mybatis/before/CartMapper.xml"/>
+	<mapper resource="com/mybatis/before/IndexMapper.xml"/>
+	<mapper resource="com/mybatis/before/OrderMapper.xml"/>
+	<mapper resource="com/mybatis/before/UserCenterMapper.xml"/>
+	<mapper resource="com/mybatis/before/UserMapper.xml"/>
+
+    </mappers>
+</configuration>

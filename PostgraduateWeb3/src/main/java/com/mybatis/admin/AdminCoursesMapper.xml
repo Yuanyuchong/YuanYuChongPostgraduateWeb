@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 添加商品 -->
+	<mapper namespace="com.dao.AdminCoursesDao">
+	<insert id="addCourses" parameterType="Courses">
+		insert into coursestable 
+		(id,cname,coprice,crprice,cpicture,coursestype_id)
+		values(null,#{cname},#{coprice},#{crprice},#{cpicture},#{coursestype_id})
+	</insert>
+<!-- 更新商品 -->
+	<update id="updateCoursesById" parameterType="Courses">
+	update coursestable
+	<set>
+		<if test="cname!=null">
+			cname=#{cname},
+		</if>
+		<if test="coprice!=null">
+			coprice=#{coprice},
+		</if>
+		<if test="crprice!=null">
+			crprice=#{crprice},
+		</if>
+		<if test="cpicture!=null">
+			cpicture=#{cpicture},
+		</if>
+		<if test="coursestype_id!=null">
+			coursestype_id=#{coursestype_id},
+		</if>
+	</set>
+	where id=#{id}
+</update>
+<!-- 查询商品 -->
+	<select id="selectCourses" resultType="Courses">
+		select * from coursestable
+	</select>
+<!-- 分页查询商品 -->	
+	<select id="selectAllCoursesByPage" resultType="Courses" parameterType="map">
+		select *from coursestable order by id limit #{startIndex},#{perPageSize}
+	</select>
+<!-- 根据id查询一个商品 --><!-- 需要级联查询 -->
+	<select id="selectCoursesById" resultType="Courses" parameterType="Integer">
+		select ct.*,cy.typename from coursestable ct,coursestypetable cy where ct.id=#{id}
+		and ct.coursestype_id=cy.id
+	</select>
+
+<!-- 删除单个商品 -->
+	<delete id="deleteACourses" parameterType="Integer">
+		delete from coursestable where id=#{id}
+	</delete>
+	
+	</mapper>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <!-- 相当于Dao包的一个类 -->
+<mapper namespace="com.dao.OrderDao">
+<!-- 添加一个订单，成功后将主键值回填给id（po的属性） -->
+<insert id="addOrder" parameterType="Order" keyProperty="id" useGeneratedKeys="true">
+   insert into orderbasetable(buserstable_id,amount,status,orderdate)
+   values (#{buserstable_id},#{amount},0,now())
+</insert>
+<!-- 生成订单子详情 -->
+<insert id="addOrderDetail" parameterType="map">
+   insert into orderdetail (orderbasetable_id,coursestable_id,shoppingnum)
+   select #{ordersn},coursestable_id,shoppingnum from carttable 
+   where busertable_id=#{uid}
+</insert>
+<!-- 查询商品购买量，以便更新库存使用 -->
+<select id="selectCoursesShop" parameterType="Integer" resultType="map">
+   select shoppingnum cshoppingnum,coursestable_id cid from carttable 
+   where busertable_id=#{uid}   
+</select>
+
+<!-- 清空购物车 -->
+<delete id="clear" parameterType="Integer">
+    delete from carttable where busertable_id=#{uid}
+</delete>
+<!-- 支付订单 -->
+<update id="pay" parameterType="Integer">
+    update orderbasetable set status=1 where id=#{ordersn}
+</update>
+</mapper>
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <!-- 相当于Dao包的一个类 -->
+<mapper namespace="com.dao.UserCenterDao">
+<!-- 用户中心 -->
+<select id="myOrder" resultType="map" parameterType="Integer">
+   select id,amount,buserstable_id,status,orderdate from ORDERBASETABLE
+   where buserstable_id=#{bid}
+</select>
+<select id="myFocus" resultType="map" parameterType="Integer">
+    select ct.id,ct.cname,ct.coprice,ct.crprice,ct.cpicture from
+    focustable ft,coursestable ct
+    where ft.coursestable_id=ct.id and ft.busertable_id=#{bid}
+</select>
+<select id="orderDetail" resultType="map" parameterType="Integer">
+   select ct.id,ct.cname,ct.coprice,ct.crprice,ct.cpicture,odt.shoppingnum from
+   Coursestable ct,orderdetail odt
+   where odt.orderbasetable_id=#{ordersn} and ct.id=odt.coursestable_id
+</select>
+</mapper>
