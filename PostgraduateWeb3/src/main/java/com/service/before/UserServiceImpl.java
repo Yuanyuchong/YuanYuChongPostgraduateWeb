@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
 			//list.get(0)得到第一个元素
 		};
 		if(ruser!=null){
-			session.setAttribute("bruser", ruser);
+			session.setAttribute	("bruser", ruser);
 			return "forward:/before";
 		}else{
 			model.addAttribute("msg", "用户或者密码错误!");

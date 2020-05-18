@@ -82,7 +82,7 @@
 			<div class="AreaR">
 				<div class="AreaM clearfix">
 					<div id="focus">
-						<img src="images/before/540.jpg" />
+						<img src="images/before/540.png" />
 					</div>
 				</div>
 				<div class="AreaRR clearfix">

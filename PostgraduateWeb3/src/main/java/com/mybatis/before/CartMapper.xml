@@ -15,7 +15,7 @@
 	<!-- =============================================================== -->
 <!-- 是否添加购物车 -->
 	<select id="isPutCart"  resultType="map" parameterType="map">
-		select *from carttable where gcoursestable_id=#{cid} and busertable_id=#{uid}
+		select *from carttable where coursestable_id=#{cid} and busertable_id=#{uid}
 	</select>
 <!-- 添加购物车 -->
 	<insert id="putCart" parameterType="map">
@@ -31,7 +31,7 @@
 	<select id="selectCart" parameterType="Integer" resultType="map" >
 		select ct.id,ct.cname,ct.cpicture,ct.crprice,cat.shoppingnum,
 		cat.shoppingnum*ct.crprice smallsum
-		from coursestable ct,carttable cat where ct.id=cat.goodstable_id and cat.busertable_id=#{id}
+		from coursestable ct,carttable cat where ct.id=cat.coursestable_id and cat.busertable_id=#{id}
 	</select>
 <!-- 删除购物车中的订单 -->
 	<delete id="deleteAgoods" parameterType="map">

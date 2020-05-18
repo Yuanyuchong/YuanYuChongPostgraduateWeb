@@ -52,7 +52,7 @@
 						<li><span>折扣价:</span><strong
 							class="xj">${courses.crprice }元</strong>
 						</li>
-						<li><span>类型:</span>${courses.crprice }</li>
+						<li><span>类型:</span>${courses.coursestype_id }</li>
 						<li><span>购买数量:</span><input type="text" name="shoppingnum"
 							class="good_txt" value="1" /> </li>
 					</ul>
