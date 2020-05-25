@@ -11,7 +11,7 @@
 </insert>
 <!-- 生成订单子详情 -->
 <insert id="addOrderDetail" parameterType="map">
-   insert into orderdetail (orderbasetable_id,coursestable_id,shoppingnum)
+   insert into orderdetail (orderbasetable,coursestable_id,shoppingnum)
    select #{ordersn},coursestable_id,shoppingnum from carttable 
    where busertable_id=#{uid}
 </insert>

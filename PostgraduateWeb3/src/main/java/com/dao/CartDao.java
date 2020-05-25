@@ -14,6 +14,6 @@ public interface CartDao {
 	public  int putCart(Map<String, Object> map);
 	public  int updateCart(Map<String, Object> map);
 	public  List<Map<String, Object>> selectCart(Integer userId);
-	public  void deleteAgoods(Map<String, Object> map);
+	public  void deleteAcourses(Map<String, Object> map);
 	public  void clear(Integer userId);
 }

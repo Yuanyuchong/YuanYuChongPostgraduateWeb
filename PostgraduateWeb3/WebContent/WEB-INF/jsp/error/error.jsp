@@ -7,6 +7,6 @@
 <title>错误页面</title>
 </head>
 <body>
-<h1>网站正在维护</h1>
+<h1>网站正在维护或者尚未登录</h1>
 </body>
 </html>

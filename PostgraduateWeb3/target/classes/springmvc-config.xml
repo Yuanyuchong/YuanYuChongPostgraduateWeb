@@ -40,5 +40,6 @@ class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
   p:uploadTempDir="fileUpload/temp">
   </bean>
   <!-- 异常处理，托管MyExceptionHandler -->
-<!--     <bean class="com.exception.MyExceptionHandler"/>
- --> </beans>
+<!--     <bean class="com.exception.MyExceptionHandler"/> 
+ -->
+ </beans>

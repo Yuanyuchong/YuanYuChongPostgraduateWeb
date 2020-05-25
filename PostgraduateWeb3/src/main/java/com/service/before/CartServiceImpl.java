@@ -22,7 +22,7 @@ public class CartServiceImpl implements CartService{
 	public String focus(Model model,Integer id,HttpSession session) {
 		Map<String,Object>map=new HashMap<String,Object>();
 		map.put("uid", MyUtil.getUserId(session));
-		map.put("gid",id);
+		map.put("cid",id);
 		List<Map<String,Object>> list=cartDao.isFocus(map);
 		if(list.size()>0) {
 			model.addAttribute("msg","已关注该商品");
@@ -34,7 +34,7 @@ public class CartServiceImpl implements CartService{
 			else
 				model.addAttribute("msg", "关注失败！");
 		}
-		return "forward:/goodsDetail?id="+id;
+		return "forward:/coursesDetail?id="+id;
 	}
 	//加入购物车
 	@Override
@@ -42,7 +42,7 @@ public class CartServiceImpl implements CartService{
 		Map<String,Object>map=new HashMap<String,Object>();
 		map.put("uid", MyUtil.getUserId(session));
 		System.out.println(MyUtil.getUserId(session));
-		map.put("gid", id);
+		map.put("cid", id);
 		System.out.println(id);
 		map.put("shoppingnum", shoppingnum);
 		System.out.println(shoppingnum);
@@ -68,11 +68,11 @@ public class CartServiceImpl implements CartService{
 	}	
 	//删除购物车
 	@Override
-	public String deleteAgoods(Integer id, HttpSession session) {
+	public String deleteAcourses(Integer id, HttpSession session) {
 		Map<String,Object>map=new HashMap<String,Object>();
 		map.put("uid",MyUtil.getUserId(session));
-		map.put("gid", id);
-		cartDao.deleteAgoods(map);
+		map.put("cid", id);
+		cartDao.deleteAcourses(map);
 		return"forward:/selectCart";
 	}
 	//清空购物车

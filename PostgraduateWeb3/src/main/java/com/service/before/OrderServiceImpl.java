@@ -31,13 +31,7 @@ public class OrderServiceImpl implements OrderService {
 		map.put("ordersn",order.getId());
 		map.put("uid", MyUtil.getUserId(session));
 		orderDao.addOrderDetail(map);
-		//更新商品库存
-		//更新商品库存1.查询商品购买量，以便更新库存使用
-		List<Map<String,Object>> list=orderDao.selectGoodsShop(MyUtil.getUserId(session));
-		//2.根据商品购买量更新库存
-		for (Map<String,Object> map2:list){
-			orderDao.updateStore(map2);
-		}
+
 		orderDao.clear(MyUtil.getUserId(session));
 		model.addAttribute("ordersn", order.getId());
 		return "before/orderdone";

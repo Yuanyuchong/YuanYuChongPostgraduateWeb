@@ -28,6 +28,12 @@
 			</td>
 		</tr>
 		<tr>
+			<td>课程id<font color="red">*</font></td>
+			<td>
+				<form:input path="id"/>
+			</td>
+		</tr>
+		<tr>
 			<td>原价<font color="red">*</font></td>
 			<td>
 			<form:input path="coprice"/>
@@ -53,7 +59,7 @@
 					<form:options items="${coursesType }" 
 					itemLabel="typename"
 					itemValue="id"/>
-			</form:select> 
+			</form:select>
 		</td>
 		</tr>
 		<tr>

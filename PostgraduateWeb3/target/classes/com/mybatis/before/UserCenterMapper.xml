@@ -16,7 +16,7 @@
 </select>
 <select id="orderDetail" resultType="map" parameterType="Integer">
    select ct.id,ct.cname,ct.coprice,ct.crprice,ct.cpicture,odt.shoppingnum from
-   Coursestable ct,orderdetail odt
-   where odt.orderbasetable_id=#{ordersn} and ct.id=odt.coursestable_id
+   coursestable ct,orderdetail odt
+   where odt.orderbasetable=#{ordersn} and ct.id=odt.coursestable_id
 </select>
 </mapper>

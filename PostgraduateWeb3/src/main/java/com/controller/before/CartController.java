@@ -31,7 +31,7 @@ public String selectCart(Model model,HttpSession session) {
 //删除购物车
 @RequestMapping("/deleteCart")
 public String deleteAgoods(Integer id,HttpSession session ) {
-		return cartService.deleteAgoods(id,session);
+		return cartService.deleteAcourses(id,session);
 	}
 //清空购物车
 @RequestMapping("/clear")

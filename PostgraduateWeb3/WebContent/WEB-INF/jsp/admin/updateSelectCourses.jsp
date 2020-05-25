@@ -49,8 +49,8 @@
 			<td>${courses.id }</td>
 			<td>${courses.cname }</td>
 			<td>${courses.crprice }</td>
-			<td><a href="adminCourses/selectACourses?id=${courses.id }" target="_blank">详情</a></td>
-			<td><a href="adminCourses/selectACourses?id=${courses.id }&act=updateACourses" target="_blank">修改</a></td>
+			<td><a href="adminCourses/selectACourses?id=${courses.id }" target="f1">详情</a></td>
+			<td><a href="adminCourses/selectACourses?id=${courses.id }&act=updateACourses" target="f1">修改</a></td>
 		</tr>
 		</c:forEach>
 		<tr>

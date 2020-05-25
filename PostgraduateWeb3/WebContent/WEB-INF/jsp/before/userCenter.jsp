@@ -91,7 +91,7 @@
 							<td align="center" bgcolor="#ffffff">${mf.crprice }</td>
 							<td align="center" bgcolor="#ffffff">
 								<a style="text-decoration: none;" class="f6" 
-								href="goodsDetail?id=${mf.id }">去看看</a>
+								href="coursesDetail?id=${mf.id }">去看看</a>
 							</td>
 						</tr>
 					</c:forEach>

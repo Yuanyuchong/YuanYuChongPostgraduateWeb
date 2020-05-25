@@ -57,6 +57,7 @@ public class AdminCoursesServiceImpl implements AdminCoursesService{
 			//updateAct不能与act重名，因为使用了转发
 			//修改到数据库
 			if(adminCoursesDao.updateCoursesById(courses)>0){
+				System.out.println("使用了重定向！");
 				return "forward:/adminCourses/selectCourses?act=updateSelect";
 			}else{
 				return "admin/updateAcourses";
@@ -118,11 +119,17 @@ public class AdminCoursesServiceImpl implements AdminCoursesService{
 		model.addAttribute("courses", acourses);
 		//修改商品
 		if("updateACourses".equals(act)){
+			System.out.println("执行了if语句");
+			System.out.println("执行了if语句");
+			System.out.println("执行了if语句");
+			System.out.println("执行了if语句");
+
 			return "admin/updateAcourses";
 		}
 		//详情界面
 		return "admin/coursesDetail";
 	}
+	
 
 	//删除一个商品
 	@Override

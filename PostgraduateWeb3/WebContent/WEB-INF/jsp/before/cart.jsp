@@ -29,7 +29,7 @@
 		return false;
 	}
 	//删除
-	function deleteAgoods(gno){
+	function deleteAcourses(gno){
 		if(window.confirm("真的删除该商品吗？")){
 			window.location.href="deleteCart?id="+gno;
 			return true;
@@ -78,7 +78,7 @@
 						<td align="center" bgcolor="#ffffff" width="115px">￥&nbsp;<span>${ce.smallsum }</span>&nbsp;
 						</td>
 						<td align="center" bgcolor="#ffffff" width="185px"><a
-							style="text-decoration: none;" href="javaScript:deleteAgoods('${ce.id }')"
+							style="text-decoration: none;" href="javaScript:deleteAcourses('${ce.id }')"
 							class="f6" title="删除"><img src="images/before/sc.png" />
 						</a></td>
 					</tr>
